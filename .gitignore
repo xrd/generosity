@@ -1,0 +1,12 @@
+doc/
+config/database.yml
+db/*.sqlite3
+log/*
+sdps/*
+README
+tmp/*
+public/stylesheets/*.css
+config/environment.rb
+*~
+*#
+.#*
