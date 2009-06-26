@@ -1,0 +1,16 @@
+.rpxlogin{ :style => "display: none;" }
+  - if @current_user
+    %script== var base = '#{associate_rpx_path}';
+  - else
+    %script== var base = '#{login_rpx_path}';
+  %script{ :src => "https://rpxnow.com/openid/v2/widget", :type => "text/javascript" }
+  :javascript
+    RPXNOW.token_url = "http://#{RPX_SUBDOMAIN}.h264web.com" + base;
+    RPXNOW.realm = "h264web";
+    RPXNOW.overlay = true;
+    RPXNOW.language_preference = 'en';
+%p
+  %h2 Welcome!
+  %h2
+    %a.rpxnow Please sign In
+
