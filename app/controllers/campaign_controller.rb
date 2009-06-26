@@ -1,13 +1,13 @@
 class CampaignController < ApplicationController
   def index
-    setup unless setup_complete?
-  end
-
-  def setup
-    render :text => 'Setup'
+    if has_subdomain?
+      
+    else
+      render :template => 'campaign/whyareyouhere'
+    end
   end
 
   def setup_complete?
-    
+    @current_user.profile.subdomain
   end
 end
