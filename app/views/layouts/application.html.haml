@@ -1,0 +1,12 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title I Am Generosity.com
+    = javascript_include_tag 'jquery-1.2.6.js', 'jquery.simplemodal-1.2.3.js', 'jquery_extensions.js', 'jquery-ui-personalized-1.6rc2.js', 'jquery.validate.js', 'jquery.corners.js', 'application', 'configuration', 'status', 'devices', "swfobject.js", "state", "encoder_status"
+    = stylesheet_link_tag 'default', 'simplemodal', 'application'
+
+    - if @current_user and @current_user.admin?
+      = javascript_include_tag 'admin'
+    = yield :head
+  %body
+    = yield
