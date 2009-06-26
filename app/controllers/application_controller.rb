@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => 'c2e35e370a3af3722c0a1c4df84c4855'
   
-  #before_filter :setup
-  #before_filter :rpx_setup
-  #before_filter :authenticate
+  before_filter :setup
+  before_filter :rpx_setup
+  before_filter :authenticate
 
   private
   def setup

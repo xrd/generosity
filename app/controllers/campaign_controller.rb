@@ -1,10 +1,13 @@
 class CampaignController < ApplicationController
   def index
     if has_subdomain?
-      
     else
-      render :template => 'campaign/whyareyouhere'
+      
     end
+  end
+
+  def why
+
   end
 
   def setup_complete?
