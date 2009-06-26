@@ -9,6 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20090509053612) do
+
+  create_table "users", :force => true do |t|
+    t.string "email"
+    t.string "identifier"
+    t.string "username"
+    t.string "nickname"
+    t.string "photo"
+    t.string "role"
+  end
+
+  create_table "variables", :force => true do |t|
+    t.integer "user_id"
+    t.string  "name"
+    t.string  "text"
+  end
 
 end

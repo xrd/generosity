@@ -1,0 +1,60 @@
+Please record it
+%script{ :type => "text/javascript" }
+  function getMovie(movieName)
+  {
+  if (navigator.appName.indexOf("Microsoft") != -1) {
+  return window[movieName];
+  } else {
+  return document[movieName];
+  }
+  }
+  
+  
+  function start()
+  {
+  getMovie("AVRecord").startRecording();
+  }
+  
+  function stop()
+  {
+  getMovie("AVRecord").stopRecording();
+  }
+  
+  function restart()
+  {
+  getMovie("AVRecord").restartRecording();
+  }
+  
+  function onAVRReady()
+  {
+  document.getElementById("statusDiv").innerHTML = "Ready";
+  }
+  
+  function onAVRError(code, msg)
+  {
+  document.getElementById("statusDiv").innerHTML = "Error Code: " + code + "; " + msg;
+  }
+  
+  function onAVRStatus(status, fileId)
+  {
+  document.getElementById("statusDiv").innerHTML = "Status: " + status + "; FileID: " + fileId;
+  }
+%body{ :bgcolor => "#000000" }
+  %div{ :align => "center", :style => "font-family: Arial, Helvetica, sans-serif; color: #FFFFFF; font-size: 12px" }
+    %object#AVRecord{ :height => "240", :classid => "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000", :codebase => "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0", :align => "middle", :width => "320" }
+      %param{ :name => "allowScriptAccess", :value => "sameDomain" }
+      %param{ :name => "allowFullScreen", :value => "false" }
+      %param{ :name => "FlashVars", :value => "host=rtmp://iamgenerosity.com/avrecord&fileId=12345&maxLength=10000" }
+      %param{ :name => "movie", :value => "/flash/AVRecord.swf" }
+      %param{ :name => "menu", :value => "false" }
+      %param{ :name => "quality", :value => "high" }
+      %param{ :name => "bgcolor", :value => "#000000" }
+      %embed{ :name => "AVRecord", :bgcolor => "#000000", :src => "/flash/AVRecord.swf", :allowfullscreen => "false", :type => "application/x-shockwave-flash", :pluginspage => "http://www.adobe.com/go/getflashplayer", :flashvars => "host=rtmp://iamgenerosity.com/avrecord&fileId=12345&maxLength=10000", :allowscriptaccess => "sameDomain", :height => "240", :menu => "false", :quality => "high", :align => "middle", :width => "320" }
+    %br
+    %br
+    %input{ :type => "button", :value => "Start Recording", :onclick => "start();" }
+    %input{ :type => "button", :value => "Stop Recording", :onclick => "stop();" }
+    %input{ :type => "button", :value => "Restart Recording", :onclick => "restart();" }
+    %br
+    %br
+    #statusDiv

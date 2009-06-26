@@ -5,8 +5,8 @@
     %script== var base = '#{login_rpx_path}';
   %script{ :src => "https://rpxnow.com/openid/v2/widget", :type => "text/javascript" }
   :javascript
-    RPXNOW.token_url = "http://#{RPX_SUBDOMAIN}.h264web.com" + base;
-    RPXNOW.realm = "h264web";
+    RPXNOW.token_url = "http://#{RPX_SUBDOMAIN}#{GENEROSITY_BASE}" + base;
+    RPXNOW.realm = "#{REALM}";
     RPXNOW.overlay = true;
     RPXNOW.language_preference = 'en';
 %p

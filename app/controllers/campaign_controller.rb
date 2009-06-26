@@ -6,8 +6,13 @@ class CampaignController < ApplicationController
     end
   end
 
-  def why
-
+  def welcome
+  end
+  def script
+  end
+  def founder_message
+  end
+  def record
   end
 
   def setup_complete?
