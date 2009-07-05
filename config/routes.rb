@@ -30,7 +30,7 @@ ActionController::Routing::Routes.draw do |map|
   #     admin.resources :products
   #   end
 
-  map.resources :campaign, :collection => { :welcome => :get, :script => :get, :founder_message => :get, :record => :get }
+  map.resources :campaign, :collection => { :welcome => :get, :script => :get, :founder_message => :get, :record => :get, :syndicate => :get }
 
   map.login '/login', :controller => 'rpx', :action => 'login'
   map.logout '/logout', :controller => 'rpx', :action => 'logout'

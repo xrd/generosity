@@ -18,4 +18,8 @@ class CampaignController < ApplicationController
   def setup_complete?
     @current_user.profile.subdomain
   end
+
+  def syndicate
+    render :type => 'text/json', :text => 'Hi there', :layout => false
+  end
 end

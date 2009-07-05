@@ -3,20 +3,28 @@
   %head
     %title I Am Generosity.com
     = javascript_include_tag 'jquery-1.2.6.js', 'jquery.simplemodal-1.2.3.js', 'jquery_extensions.js', 'jquery-ui-personalized-1.6rc2.js', 'jquery.validate.js', 'jquery.corners.js', 'application', 'configuration', 'status', 'devices', "swfobject.js", "state", "encoder_status"
-    = stylesheet_link_tag 'default', 'simplemodal', 'application'
+    = stylesheet_link_tag 'default', 'simplemodal', 'application', 'ie', 'print', 'screen'
 
     - if @current_user and @current_user.admin?
       = javascript_include_tag 'admin'
     = yield :head
   %body
-    - if @current_user
-      .bar
-        %h4 Why
-        %h4 Welcome
-        %h4 Founder Message
-        %h4 Script
-        %h4 Record
-    - else
-      = render :partial => 'layouts/rpxnow'
-    .body  
-      = yield
+    .container
+      - if @current_user
+        .bar
+          %div{ :class => 'span-3 colborder' }
+            %h4 Why
+          %div{ :class => 'span-3 colborder' }
+            %h4 Welcome
+          %div{ :class => 'span-3 colborder' }
+            %h4 Founder Message
+          %div{ :class => 'span-3 colborder' }
+            %h4 Script
+          %div{ :class => 'span-3 last' }
+            %h4 Record
+      - else
+        = render :partial => 'layouts/rpxnow'
+      %hr.space
+      %div{ :class => 'span-22 colborder' }
+        = yield
+
